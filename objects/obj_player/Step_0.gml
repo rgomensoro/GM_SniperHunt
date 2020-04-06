@@ -5,6 +5,7 @@ var cima = keyboard_check(ord("W"));
 var baixo = keyboard_check(ord("S"));
 var esq = keyboard_check(ord("A"));
 var dir = keyboard_check(ord("D"));
+var stealth = keyboard_check_pressed(ord("C"));
 var tiro = mouse_check_button(mb_left);
 
 x = clamp(x,32, room_width - 32);
@@ -28,11 +29,33 @@ image_angle = dir;
 
 espera++;
 
+if (stealth)
+{
+	if (!camuflado)
+	{
+		image_alpha = 0.5;
+		camuflado = true;
+	}
+	else
+	{
+		image_alpha = 1;
+		camuflado = false;
+	}
+	
+}
+
 if (tiro)
 {
 	if (espera >= limite)
 	{
-	    var t = instance_create_layer(x, y, "player", obj_bullet);
+		yy = -25*sin((image_angle * pi)/180);
+		xx = 25*cos((image_angle * pi)/180);
+		
+	    var g = instance_create_layer(x + xx, y + yy, "player", obj_gunfire);
+	    g.direction = dir;
+	    g.image_angle = dir;
+		
+		var t = instance_create_layer(x, y, "player", obj_bullet);
 	    t.direction = dir;
 	    t.image_angle = dir;
 	    espera = 0;
