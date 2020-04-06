@@ -23,6 +23,18 @@ x += velH;
 var velV = (baixo-cima)*vel;
 y += velV;
 
+if (velH == 0 && velV == 0) 
+{
+	if (image_index == 1)
+		image_index = 2;		
+}
+else
+if (!(velH == 0) || !(velV == 0)) 
+{
+	if (image_index == 2)
+		image_index = 1;		
+	
+}
 //Olhando para o mouse    
 var dir = point_direction(x, y, mouse_x, mouse_y);
 

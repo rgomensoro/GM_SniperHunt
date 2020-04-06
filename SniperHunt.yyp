@@ -167,6 +167,14 @@
             }
         },
         {
+            "Key": "6f0d57b0-a821-43b7-85b5-812af2a67499",
+            "Value": {
+                "id": "026bfd9c-dddb-40cd-94a6-fd8758db092d",
+                "resourcePath": "objects\\obj_karambit\\obj_karambit.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "7347daa7-2c28-4154-978b-2ad3842b8f00",
             "Value": {
                 "id": "4a7cbf28-90cb-452d-abee-b647274043f6",
