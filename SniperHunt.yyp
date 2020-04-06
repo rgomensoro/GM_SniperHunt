@@ -298,7 +298,7 @@
             "Key": "d6217216-564a-40f6-ab91-eb8400a44cab",
             "Value": {
                 "id": "e041ba2f-f119-4b1d-86a0-2188fd69afca",
-                "resourcePath": "sprites\\spr_gun_karambit\\spr_gun_karambit.yy",
+                "resourcePath": "sprites\\spr_karambit\\spr_karambit.yy",
                 "resourceType": "GMSprite"
             }
         },

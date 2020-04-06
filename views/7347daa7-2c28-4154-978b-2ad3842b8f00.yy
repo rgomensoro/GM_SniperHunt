@@ -10,7 +10,7 @@
         "d6217216-564a-40f6-ab91-eb8400a44cab"
     ],
     "filterType": "GMSprite",
-    "folderName": "Guns",
+    "folderName": "Weapons",
     "isDefaultView": false,
     "localisedFolderName": ""
 }
