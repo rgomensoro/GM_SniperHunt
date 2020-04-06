@@ -6,6 +6,8 @@ var baixo = keyboard_check(ord("S"));
 var esq = keyboard_check(ord("A"));
 var dir = keyboard_check(ord("D"));
 var stealth = keyboard_check_pressed(ord("C"));
+var weapon1 = keyboard_check_pressed(ord("1"));
+var weapon2 = keyboard_check_pressed(ord("2"));
 var tiro = mouse_check_button(mb_left);
 
 x = clamp(x,32, room_width - 32);
@@ -28,6 +30,16 @@ var dir = point_direction(x, y, mouse_x, mouse_y);
 image_angle = dir;
 
 espera++;
+
+if (weapon1)
+{
+	image_index = 1;
+}
+
+if (weapon2)
+{
+	image_index = 0;
+}
 
 if (stealth)
 {
