@@ -4,7 +4,7 @@
 vel = 2;
 
 espera = 0; // Tempo que estou esperando
-limite = room_speed; // 6 tiros por segundo
+limite = room_speed/6; // 6 tiros por segundo
 
 camuflado = false;
 
