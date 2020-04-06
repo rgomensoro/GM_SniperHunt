@@ -55,7 +55,7 @@ if (tiro)
 	    g.direction = dir;
 	    g.image_angle = dir;
 		
-		var t = instance_create_layer(x, y, "player", obj_bullet);
+		var t = instance_create_layer(x + xx, y + yy, "player", obj_bullet);
 	    t.direction = dir;
 	    t.image_angle = dir;
 	    espera = 0;
