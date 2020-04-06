@@ -20,10 +20,22 @@ x += velH;
 var velV = (baixo-cima)*vel;
 y += velV;
 
-image_angle = point_direction(x, y, mouse_x,mouse_y);
+//Olhando para o mouse    
+var dir = point_direction(x, y, mouse_x, mouse_y);
+
+//Aplicando a direção do mouse à imagem
+image_angle = dir;
+
+espera++;
 
 if (tiro)
 {
-	var t = instance_create_layer(x,y,"instances",obj_bullet);
-	
+	if (espera >= limite)
+	{
+	    var t = instance_create_layer(x, y, "player", obj_bullet);
+	    t.direction = dir;
+	    t.image_angle = dir;
+	    espera = 0;
+		show_debug_message("tiro:created");
+	}
 }

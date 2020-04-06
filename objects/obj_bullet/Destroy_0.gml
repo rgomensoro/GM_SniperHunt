@@ -1,6 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-speed = 20;
 
-varado = false;
+show_debug_message("tiro:destroyed");
