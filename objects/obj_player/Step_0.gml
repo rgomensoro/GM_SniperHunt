@@ -8,6 +8,7 @@ var dir = keyboard_check(ord("D"));
 var stealth = keyboard_check_pressed(ord("C"));
 var weapon1 = keyboard_check_pressed(ord("1"));
 var weapon2 = keyboard_check_pressed(ord("2"));
+var weapon3 = keyboard_check_pressed(ord("3"));
 var tiro = mouse_check_button(mb_left);
 
 x = clamp(x,32, room_width - 32);
@@ -25,14 +26,14 @@ y += velV;
 
 if (velH == 0 && velV == 0) 
 {
-	if (image_index == 1)
-		image_index = 2;		
+	if (image_index == 2)
+		image_index = 3;		
 }
 else
 if (!(velH == 0) || !(velV == 0)) 
 {
-	if (image_index == 2)
-		image_index = 1;		
+	if (image_index == 3)
+		image_index = 2;		
 	
 }
 //Olhando para o mouse    
@@ -45,12 +46,17 @@ espera++;
 
 if (weapon1)
 {
-	image_index = 1;
+	image_index = 0;
 }
 
 if (weapon2)
 {
-	image_index = 0;
+	image_index = 1;
+}
+
+if (weapon3)
+{
+	image_index = 2;
 }
 
 if (stealth)

@@ -10,3 +10,4 @@ camuflado = false;
 
 window_set_cursor(cr_none);
 cursor_sprite = spr_cross_hair;
+image_index = 1;
