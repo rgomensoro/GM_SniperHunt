@@ -6,7 +6,7 @@
 player_rangex = obj_player.x - x;
 player_rangey = obj_player.y - y;
 
-if ((abs(player_rangex) < 200) || (abs(player_rangey) < 200))
+if ((abs(player_rangex) < 200) && (abs(player_rangey) < 200))
 {
 	aware = true;
 }

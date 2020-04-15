@@ -6,6 +6,7 @@ var baixo = keyboard_check(ord("S"));
 var esq = keyboard_check(ord("A"));
 var dir = keyboard_check(ord("D"));
 var stealth = keyboard_check_pressed(ord("C"));
+var reload = keyboard_check_pressed(ord("R"));
 var weapon1 = keyboard_check_pressed(ord("1"));
 var weapon2 = keyboard_check_pressed(ord("2"));
 var weapon3 = keyboard_check_pressed(ord("3"));
@@ -47,17 +48,44 @@ espera++;
 if (weapon1)
 {
 	image_index = 0;
+	gun_active = "rifle";
+	limite = room_speed/10; // 10 tiros por segundo
+	clip = 30;
+
 }
 
 if (weapon2)
 {
 	image_index = 1;
+	gun_active = "pistol";
+	limite = room_speed/2; // 10 tiros por segundo
+	clip = 12;
 }
 
 if (weapon3)
 {
 	image_index = 2;
 }
+
+if (reload)
+{
+	if (gun_active == "rifle")
+	{
+		clip = 30;
+		espera = 0;
+		limite = room_speed/10; // 10 tiros por segundo
+		audio_play_sound(snd_ak47_reload,10,false);
+	}
+
+	if (gun_active == "pistol")
+	{
+		clip = 12;
+		espera = 0;
+		limite = room_speed/2; // 2 tiros por segundo
+		audio_play_sound(snd_usp_reload,10,false);
+	}
+}
+
 
 if (stealth)
 {
@@ -78,17 +106,42 @@ if (tiro)
 {
 	if (espera >= limite)
 	{
-		yy = -25*sin((image_angle * pi)/180);
-		xx = 25*cos((image_angle * pi)/180);
 		
-	    var g = instance_create_layer(x + xx, y + yy, "player", obj_gunfire);
-	    g.direction = dir;
-	    g.image_angle = dir;
+		if (clip > 0)
+		{
+			
+			yy = -25*sin((image_angle * pi)/180);
+			xx = 25*cos((image_angle * pi)/180);
 		
-		var t = instance_create_layer(x + xx, y + yy, "player", obj_bullet);
-	    t.direction = dir;
-	    t.image_angle = dir;
-	    espera = 0;
-		show_debug_message("tiro:created");
+			clip--;
+		
+		    var g = instance_create_layer(x + xx, y + yy, "player", obj_gunfire);
+		    g.direction = dir;
+		    g.image_angle = dir;
+		
+			var t = instance_create_layer(x + xx, y + yy, "player", obj_bullet);
+		    t.direction = dir;
+		    t.image_angle = dir;
+		    espera = 0;
+			show_debug_message("tiro:created");
+
+			if (gun_active == "rifle")
+				audio_play_sound(snd_ak47_fire,10,false);
+
+			if (gun_active == "pistol")
+				audio_play_sound(snd_usp_fire,10,false);
+
+		}
+		else
+		{
+		    espera = 0;
+			limite = room_speed/2;
+			if (gun_active == "rifle")
+				audio_play_sound(snd_ak47_dry,10,false);
+
+			if (gun_active == "pistol")
+				audio_play_sound(snd_usp_dry,10,false);
+		}
+		
 	}
 }

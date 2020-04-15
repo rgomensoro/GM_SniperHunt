@@ -7,7 +7,7 @@ if (y < -100)
 	instance_destroy(); 
 
 //Saindo por baixo
-if (y > room_height+100)
+if (y > room_height + 100)
 	instance_destroy(); 
 
 //Saindo pela esquerda

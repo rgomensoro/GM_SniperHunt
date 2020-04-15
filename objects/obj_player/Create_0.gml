@@ -4,7 +4,11 @@
 vel = 2;
 
 espera = 0; // Tempo que estou esperando
-limite = room_speed/6; // 6 tiros por segundo
+
+//pistol limit
+limite = room_speed/2; // 10 tiros por segundo
+clip = 12;
+gun_active = "pistol";
 
 camuflado = false;
 
