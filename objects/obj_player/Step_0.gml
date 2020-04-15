@@ -65,6 +65,9 @@ if (weapon2)
 if (weapon3)
 {
 	image_index = 2;
+	gun_active = "no_gun";
+	limite = room_speed/2; // 10 tiros por segundo
+	clip = 0;
 }
 
 if (reload)
@@ -72,7 +75,7 @@ if (reload)
 	if (gun_active == "rifle")
 	{
 		clip = 30;
-		espera = 0;
+		espera = -room_speed*3;
 		limite = room_speed/10; // 10 tiros por segundo
 		audio_play_sound(snd_ak47_reload,10,false);
 	}
@@ -80,7 +83,7 @@ if (reload)
 	if (gun_active == "pistol")
 	{
 		clip = 12;
-		espera = 0;
+		espera = -room_speed;
 		limite = room_speed/2; // 2 tiros por segundo
 		audio_play_sound(snd_usp_reload,10,false);
 	}
@@ -104,7 +107,7 @@ if (stealth)
 
 if (tiro)
 {
-	if (espera >= limite)
+	if ((espera >= limite) && (gun_active != "no_gun"))
 	{
 		
 		if (clip > 0)
