@@ -3,6 +3,8 @@
 
 randomize ();
 
-speed = random_range(0.5,2);
+//speed = random_range(0.5,2);
 
-direction = random(360);
+//direction = random(360);
+
+aware = false;

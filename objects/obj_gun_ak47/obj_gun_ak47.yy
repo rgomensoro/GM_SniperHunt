@@ -4,7 +4,36 @@
     "mvc": "1.0",
     "name": "obj_gun_ak47",
     "eventList": [
-        
+        {
+            "id": "5c194d80-9d21-489d-ab2a-864fbb68356a",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "03ee3b28-e0c6-4f59-92ba-42ef4c3d7972",
+            "enumb": 0,
+            "eventtype": 4,
+            "m_owner": "e7df1966-e573-408a-8770-98710023e1f7"
+        },
+        {
+            "id": "0347bb9f-2c0c-4d03-99f7-763e59ef30b6",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 0,
+            "eventtype": 0,
+            "m_owner": "e7df1966-e573-408a-8770-98710023e1f7"
+        },
+        {
+            "id": "442612aa-3b48-44af-8823-71f07c620ebd",
+            "modelName": "GMEvent",
+            "mvc": "1.0",
+            "IsDnD": false,
+            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
+            "enumb": 64,
+            "eventtype": 8,
+            "m_owner": "e7df1966-e573-408a-8770-98710023e1f7"
+        }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,

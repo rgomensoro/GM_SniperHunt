@@ -3,14 +3,19 @@
 
 //------------------ Nao sair da sala --------------------------//
 
-if ( y - (sprite_height/2) < 0 || y+ (sprite_height/2) > room_height)
+player_rangex = obj_player.x - x;
+player_rangey = obj_player.y - y;
+
+if ((abs(player_rangex) < 200) || (abs(player_rangey) < 200))
 {
-	vspeed *= -1;
+	aware = true;
 }
 
-if ( x - (sprite_width/2) <  0 || x + (sprite_width/2) >= room_width)
+if (aware == false)
 {
-	hspeed *= -1;
+	image_index = 1;
 }
+else
+	image_index = 0;
 
 
