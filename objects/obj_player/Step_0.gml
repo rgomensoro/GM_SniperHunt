@@ -75,9 +75,8 @@ if (reload)
 	if (gun_active == "rifle")
 	{
 		clip = 30;
-		espera = -room_speed*3; // tempo de reload 3 segundos
+		espera = -room_speed*1.5; // tempo de reload 3 segundos
 		limite = room_speed/10; // 10 tiros por segundo
-		audio_play_sound(snd_ak47_reload,10,false);
 	}
 
 	if (gun_active == "pistol")
@@ -85,8 +84,10 @@ if (reload)
 		clip = 12;
 		espera = -room_speed; // tempo de reload 1 segundo
 		limite = room_speed/2; // 2 tiros por segundo
-		audio_play_sound(snd_usp_reload,10,false);
 	}
+	
+	scr_play_gun_sound(gun_active,"reload");
+
 }
 
 
@@ -128,22 +129,15 @@ if (tiro)
 		    espera = 0;
 			show_debug_message("tiro:created");
 
-			if (gun_active == "rifle")
-				audio_play_sound(snd_ak47_fire,10,false);
-
-			if (gun_active == "pistol")
-				audio_play_sound(snd_usp_fire,10,false);
+			scr_play_gun_sound(gun_active,"fire");
 
 		}
 		else
 		{
 		    espera = 0;
 			limite = room_speed/2;
-			if (gun_active == "rifle")
-				audio_play_sound(snd_ak47_dry,10,false);
 
-			if (gun_active == "pistol")
-				audio_play_sound(snd_usp_dry,10,false);
+			scr_play_gun_sound(gun_active,"dry");
 		}
 		
 	}
