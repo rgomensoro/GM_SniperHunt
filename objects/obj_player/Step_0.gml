@@ -18,25 +18,51 @@ y = clamp(y,32, room_height - 32);
 // Movimento Horizontal.
 
 var velH = (dir-esq)*vel;
-x += velH;
 
 // Movimento Vertical.
 
 var velV = (baixo-cima)*vel;
-y += velV;
 
-if (velH == 0 && velV == 0) 
+if ((velH == 0) && (velV == 0))
 {
+	previous_hspeed *= 0.9;
+	previous_vspeed *= 0.9;
+		
+
+	walk = false;
+
 	if (image_index == 2)
 		image_index = 3;		
 }
 else
-if (!(velH == 0) || !(velV == 0)) 
 {
 	if (image_index == 3)
 		image_index = 2;		
-	
+		
+	walk = true;
 }
+
+if (walk)
+{
+	x += velH;
+	y += velV;
+
+	previous_hspeed = velH;
+	previous_vspeed = velV;
+
+}
+else
+{
+	x += (velH + previous_hspeed);
+	y += (velV + previous_vspeed);
+
+	previous_hspeed = (velH + previous_hspeed);
+	previous_vspeed = (velV + previous_vspeed);
+}
+
+show_debug_message("walk" + string(walk) + "speed: " + string(previous_hspeed) + ":" + string(previous_vspeed));
+
+
 //Olhando para o mouse    
 var dir = point_direction(x, y, mouse_x, mouse_y);
 
