@@ -75,7 +75,7 @@ if (reload)
 	if (gun_active == "rifle")
 	{
 		clip = 30;
-		espera = -room_speed*3;
+		espera = -room_speed*3; // tempo de reload 3 segundos
 		limite = room_speed/10; // 10 tiros por segundo
 		audio_play_sound(snd_ak47_reload,10,false);
 	}
@@ -83,7 +83,7 @@ if (reload)
 	if (gun_active == "pistol")
 	{
 		clip = 12;
-		espera = -room_speed;
+		espera = -room_speed; // tempo de reload 1 segundo
 		limite = room_speed/2; // 2 tiros por segundo
 		audio_play_sound(snd_usp_reload,10,false);
 	}
